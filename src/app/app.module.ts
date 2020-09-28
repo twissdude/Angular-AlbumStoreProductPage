@@ -23,7 +23,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ProductPageComponent
-    ProductPageComponent,
     ProductDescriptionComponent,
     ProductTracklistingComponent,
     ProductListComponent
@@ -31,11 +30,11 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  
   providers: [ProductService],
   bootstrap: [AppComponent]
 })
