@@ -87,12 +87,14 @@ describe("ProductListComponent", () => {
       connection.mockRespond(new Response(options));
     });
 
-    assert(
-      anchorTag
-        .attr()
-        ["routerlink"].match(/\s*\/product\/{{\s*product.id\s*}}\s*/),
-      "The `routerLink` directive doesn't have `/product/{{product.id}}` as its value."
-    );
+    const ProductListFixture = TestBed.createComponent(ProductListComponent);
+    ProductListFixture.detectChanges();
+
+    since(
+      "The content of your ProductListComponent HTML list items aren't wrapped in anchor tags."
+    )
+      .expect(ProductListFixture.nativeElement.querySelectorAll("li a").length)
+      .toBe(2);
 
     if (ProductListFixture.nativeElement.querySelectorAll("li a").length > 0) {
       since(

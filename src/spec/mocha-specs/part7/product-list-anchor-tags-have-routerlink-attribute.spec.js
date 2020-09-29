@@ -17,7 +17,9 @@ describe("ProductListComponent", () => {
     );
 
     try {
-      productListNodes[0].attrs.find(attr => (list = attr.value.match(/list/)));
+      productListNodes[0].attrs.find(
+        (attr) => (list = attr.value.match(/list/))
+      );
       const productListing = parse5.serialize(productListNodes[0]);
       $ = cheerio.load(productListing);
       li = $("li");
@@ -70,7 +72,9 @@ describe("ProductListComponent", () => {
     );
 
     assert(
-      anchorTag.attr()["routerlink"].match(/\s*\/product\/{{product.id}}\s*/),
+      anchorTag
+        .attr()
+        ["routerlink"].match(/\s*\/product\/{{\s*product.id\s*}}\s*/),
       "The `routerLink` directive doesn't have `/product/{{product.id}}` as its value."
     );
 
